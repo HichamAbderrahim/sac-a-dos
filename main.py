@@ -72,15 +72,15 @@ def tri_fusion(tableau, g, d, comparer):
         fusion(tableau, g, m, d, comparer)
 
 
-def glouton(W, tableau, N):
+def glouton(P, tableau, N):
     """ Cette fonction calcule la valeur maximale que l'on peut atteindre en mettant des objets dans un sac à dos en
         utilisant la méthode glouton, la complexité est O(n log n) """
 
     tri_fusion(tableau, 0, N - 1, lambda o1, o2: (o1.valeur / o1.poid) > (o2.valeur / o2.poid))
     total = 0.0
     for item in tableau:
-        if item.poid <= W:
-            W -= item.poid
+        if item.poid <= P:
+            P -= item.poid
             total += item.valeur
     return total
 
